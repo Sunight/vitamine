@@ -86,7 +86,7 @@
   set colorcolumn=80
 
   " Remove trailing whitespaces and ^M chars
-  autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  " autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType java setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType xml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
@@ -97,10 +97,10 @@
   set background=dark
 
   if has('gui_macvim')
-    colorscheme solarized
+    colorscheme slate
   else
     let g:solarized_termcolors=256
-    colorscheme solarized
+    colorscheme slate
 	  "colorscheme molokai
   endif
 
@@ -186,7 +186,6 @@
 " }
 
 " NerdTree {
-  map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
   map <leader>e :NERDTreeFind<CR>
   nmap <leader>nt :NERDTreeFind<CR>
 
@@ -227,6 +226,7 @@
   let g:neocomplcache_enable_camel_case_completion = 1
   let g:neocomplcache_enable_underbar_completion = 1
   let g:neocomplcache_min_syntax_length = 3
+  :set completeopt-=preview
 " }
 
 " nerdcommenter {
@@ -283,6 +283,7 @@
 " }
 
 " Taglist {
+  set tags=tags;/
   nmap <silent> <leader>tg :TlistToggle<CR>
   let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
   let Tlist_File_Fold_Auto_Close=1
