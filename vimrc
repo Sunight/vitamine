@@ -101,7 +101,6 @@
   else
     let g:solarized_termcolors=256
     colorscheme slate
-	  "colorscheme molokai
   endif
 
   let g:solarized_termtrans=1
@@ -190,13 +189,13 @@
   nmap <leader>nt :NERDTreeFind<CR>
 
   let NERDTreeShowBookmarks = 1
-  let NERDTreeIgnore = ['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
+  let NERDTreeIgnore = ['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr', '\.DS_Store']
   let NERDTreeChDirMode = 0
   let NERDTreeQuitOnOpen = 1
   let NERDTreeMouseMode = 2
   let NERDTreeShowHidden = 1
   let NERDTreeKeepTreeInNewTab = 1
-  let g:NERDTreeWinSize = 20
+  let g:NERDTreeWinSize = 30
   let g:nerdtree_tabs_open_on_gui_startup = 0
 
   " open a NERDTree automatically when vim starts up if no files were specified
@@ -206,7 +205,7 @@
 " SyntaxCheckers {
   let g:syntastic_mode_map = {
     \ 'mode': 'active',
-    \ 'passive_filetypes': ['html','java'] }
+    \ 'passive_filetypes': ['html','java','rst'] }
 
   let g:syntastic_python_checker = 'flake8'
   let g:syntastic_python_checker_args = '--ignore="E401,E501"'
