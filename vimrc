@@ -6,7 +6,7 @@
 " Environment {
   set nocompatible
   filetype on
-  filetype off
+  "filetype off
 " }
 
 " NeoBundles {
@@ -53,7 +53,7 @@
 " General {
   syntax on                  " syntax highlighting
   filetype plugin indent on  " automatically detect file types
-  set mouse=a                " automatically enable mouse usage
+  "set mouse=a                " automatically enable mouse usage
   set mousehide              " hide the mouse cursor while typing
   set encoding=utf-8
   scriptencoding utf-8
@@ -87,6 +87,7 @@
 
   " Remove trailing whitespaces and ^M chars
   " autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType java setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType xml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
@@ -96,12 +97,7 @@
   set tabpagemax=15
   set background=dark
 
-  if has('gui_macvim')
-    colorscheme slate
-  else
-    let g:solarized_termcolors=256
-    colorscheme slate
-  endif
+  colorscheme slate
 
   let g:solarized_termtrans=1
   let g:solarized_contrast='high'
@@ -119,6 +115,7 @@
   endif
 
   set rnu                         " relative line number
+  set nu
   set numberwidth=4               " set the width of line number gutter column
   set linespace=2                 " set spaces between rows
   set ignorecase                  " case insensitive search
@@ -205,10 +202,10 @@
 " SyntaxCheckers {
   let g:syntastic_mode_map = {
     \ 'mode': 'active',
-    \ 'passive_filetypes': ['html','java','rst'] }
+    \ 'passive_filetypes': ['html','java','rst', 'po'] }
 
-  let g:syntastic_python_checker = 'flake8'
-  let g:syntastic_python_checker_args = '--ignore="E401,E501"'
+  let g:syntastic_python_checkers = ['flake8']
+  let g:syntastic_python_checker_args = '--ignore=E401,E501,E302,W293,F403'
   let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
 " }
 
